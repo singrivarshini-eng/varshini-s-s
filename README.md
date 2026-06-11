@@ -34,8 +34,6 @@ A simple and efficient web-based project to help users find parking locations ea
 ## 🛠️ TOOLS USED
 
 - HTML  
-- CSS  
-- JavaScript  
 - GitHub  
 
 ---
