@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Parking Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚗 AI Parking Finder</h1>
+
+    <label>Select Town:</label>
+    <select id="town">
+        <option value="">-- Select Town --</option>
+        <option value="Ranebennur">Ranebennur</option>
+        <option value="Hubli">Hubli</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Mysore">Mysore</option>
+    </select>
+
+    <br>
+
+    <button onclick="findParking()">Find Nearest Parking</button>
+
+    <div id="result"></div>
+
+    <script>
+        function findParking() {
+            let town = document.getElementById("town").value;
+
+            if (town === "") {
+                document.getElementById("result").innerHTML =
+                    "Please select a town.";
+                return;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Searching parking near <b>" + town + "</b>...<br><br>" +
+                "<button onclick='openMap(\"" + town + "\")'>🗺 View Parking on Map</button>";
+        }
+
+        function openMap(town) {
+            let url = "https://www.google.com/maps/search/parking+near+" + encodeURIComponent(town);
+            window.open(url, "_blank");
+        }
+    </script>
+
+</body>
+</html>
